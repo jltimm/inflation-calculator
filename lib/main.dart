@@ -37,7 +37,7 @@ class DropdownWidget extends StatefulWidget {
 
 class _DropdownWidgetState extends State<DropdownWidget> {
   
-  String dropdown1Value = 'USD';
+  String dropdown1Value;
   String dropdown2Value;
   String dropdown3Value = 'Four';
 
@@ -46,6 +46,7 @@ class _DropdownWidgetState extends State<DropdownWidget> {
       title: const Text('Simple dropdown:'),
       trailing: new DropdownButton<String>(
         value: dropdown1Value,
+        hint: const Text('Choose'),
         onChanged: (String newValue) {
           setState(() {
             dropdown1Value = newValue;
@@ -72,7 +73,7 @@ class _DropdownWidgetState extends State<DropdownWidget> {
             dropdown2Value = newValue;
           });
         },
-        items: <String>['One', 'Two', 'Free', 'Four', 'Bubba'].map((String value) {
+        items: <String>['USD', 'GBP', 'Euro'].map((String value) {
           return new DropdownMenuItem<String>(
             value: value,
             child: new Text(value),
@@ -121,7 +122,7 @@ class _DropdownWidgetState extends State<DropdownWidget> {
           const SizedBox(
             height: 24.0,
           ),
-          scrollableDropdown(),
+          //scrollableDropdown(),
         ],
       ),
     );
