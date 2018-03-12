@@ -83,31 +83,6 @@ class _DropdownWidgetState extends State<DropdownWidget> {
     );
   }
 
-  Widget scrollableDropdown() {
-    return new ListTile(
-      title: const Text('Scrollable dropdown:'),
-      trailing: new DropdownButton<String>(
-        value: dropdown3Value,
-        onChanged: (String newValue) {
-          setState(() {
-            dropdown3Value = newValue;
-          });
-        },
-        items: <String>[
-            'One', 'Two', 'Free', 'Four', 'Can', 'I', 'Have', 'A', 'Little',
-            'Bit', 'More', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'
-            ]
-          .map((String value) {
-            return new DropdownMenuItem<String>(
-              value: value,
-              child: new Text(value),
-            );
-          })
-          .toList(),
-        ),
-    );
-  }
-
   Widget buildDropdownContainer() {
     return new Container(
       padding: const EdgeInsets.all(24.0),
