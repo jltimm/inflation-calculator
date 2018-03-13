@@ -117,13 +117,16 @@ class TextWidget extends StatefulWidget {
 }
 
 class _TextWidgetState extends State<TextWidget> {
-  String _counter = "Hello!";
+  String _currency1 = "";
+  String _currency2 = "";
 
   void _updateAnswer() {
     setState(() {
       String dropdown1 = dropdownKey.currentState.dropdown1Value;
-      if (dropdown1 != null) {
-        _counter = dropdownKey.currentState.dropdown1Value;
+      String dropdown2 = dropdownKey.currentState.dropdown2Value;
+      if (dropdown1 != null && dropdown2 != null) {
+        _currency1 = dropdownKey.currentState.dropdown1Value;
+        _currency2 = dropdownKey.currentState.dropdown2Value;
       }
     });
   }
@@ -137,7 +140,14 @@ class _TextWidgetState extends State<TextWidget> {
           onPressed: _updateAnswer,
           child: new Text('Calculate')
         ),
-        new Text('Name: $_counter'),
+        const SizedBox(
+          height: 24.0,
+        ),
+        new Text('Currency 1: $_currency1'),
+        const SizedBox(
+          height: 24.0,
+        ),
+        new Text('Currency 2: $_currency2')
       ],
     );
   }
