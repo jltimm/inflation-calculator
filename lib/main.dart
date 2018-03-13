@@ -6,11 +6,13 @@ void main() {
   runApp(new MyApp());
 }
 
+final dropdownKey = new GlobalKey<DropdownWidgetState>();
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Widget dropDownSection = new DropdownWidget();
+    Widget dropDownSection = new DropdownWidget(dropdownKey: dropdownKey);
     Widget textEditSection = new TextWidget();
 
     return new MaterialApp(
@@ -31,25 +33,25 @@ class MyApp extends StatelessWidget {
 }
 
 class DropdownWidget extends StatefulWidget {
-  @override
-  _DropdownWidgetState createState() => new _DropdownWidgetState();
+  DropdownWidget({ Key dropdownKey }) : super(key: dropdownKey);
+  DropdownWidgetState createState() => new DropdownWidgetState();
 }
 
-class _DropdownWidgetState extends State<DropdownWidget> {
-  
-  String dropdown1Value;
-  String dropdown2Value;
-  String dropdown3Value = 'Four';
+class DropdownWidgetState extends State<DropdownWidget> {
+  String _dropdown1Value;
+  String get dropdown1Value => _dropdown1Value;
+  String _dropdown2Value;
+  String get dropdown2Value => _dropdown2Value;
 
   Widget simpleDropdown() {
     return new ListTile(
       title: const Text('Simple dropdown:'),
       trailing: new DropdownButton<String>(
-        value: dropdown1Value,
+        value: _dropdown1Value,
         hint: const Text('Choose'),
         onChanged: (String newValue) {
           setState(() {
-            dropdown1Value = newValue;
+            _dropdown1Value = newValue;
           });
         },
         items: <String>['USD', 'GBP', 'Euro'].map((String value) {
@@ -66,11 +68,11 @@ class _DropdownWidgetState extends State<DropdownWidget> {
     return new ListTile(
       title: const Text('Dropdown with a hint:'),
       trailing: new DropdownButton<String>(
-        value: dropdown2Value,
+        value: _dropdown2Value,
         hint: const Text('Choose'),
         onChanged: (String newValue) {
           setState(() {
-            dropdown2Value = newValue;
+            _dropdown2Value = newValue;
           });
         },
         items: <String>['USD', 'GBP', 'Euro'].map((String value) {
@@ -97,7 +99,6 @@ class _DropdownWidgetState extends State<DropdownWidget> {
           const SizedBox(
             height: 24.0,
           ),
-          //scrollableDropdown(),
         ],
       ),
     );
@@ -116,13 +117,13 @@ class TextWidget extends StatefulWidget {
 }
 
 class _TextWidgetState extends State<TextWidget> {
-  int _counter = 1;
+  String _counter = "Hello!";
 
   void _updateAnswer() {
     setState(() {
-      _counter += 1;
-      if (_counter > 20) {
-        _counter = 1;
+      String dropdown1 = dropdownKey.currentState.dropdown1Value;
+      if (dropdown1 != null) {
+        _counter = dropdownKey.currentState.dropdown1Value;
       }
     });
   }
