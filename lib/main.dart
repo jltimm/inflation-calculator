@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dropdown.dart';
+import 'currency.dart';
 
 void main() {
   runApp(new MyApp());
@@ -66,7 +67,8 @@ class _TextWidgetState extends State<TextWidget> {
         const SizedBox(
           height: 24.0,
         ),
-        new Text('Currency 2: $_currency2')
+        new Text('Currency 2: $_currency2'),
+        new CurrencyWidget(test1: true, test2: false),
       ],
     );
   }
