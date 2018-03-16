@@ -11,12 +11,21 @@ class CurrencyWidget extends StatefulWidget {
 
 }
 
+Widget createNumberField() {
+    return new TextField(
+      keyboardType: TextInputType.number,
+      decoration: new InputDecoration(labelText: "Enter amount(\$)"),
+    );
+  }
+
+
 class CurrencyWidgetState extends State<CurrencyWidget> {
   Widget build(BuildContext context) {
     return new Column(
       children: [
         new Text(widget.test1.toString()),
         new Text(widget.test2.toString()),
+        createNumberField(),
       ]
     );
   }
