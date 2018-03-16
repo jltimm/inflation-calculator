@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Widget dropDownSection = new DropdownWidget(dropdownKey: dropdownKey);
+    Widget dropDownSection = new DropdownWidget(dropdownKey: dropdownKey, label1: "test", label2: "test2",);
     Widget textEditSection = new TextWidget();
 
     return new MaterialApp(
