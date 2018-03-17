@@ -69,6 +69,9 @@ class _TextWidgetState extends State<TextWidget> {
         ),
         new Text('Currency 2: $_currency2'),
         new CurrencyWidget(flag: true),
+        const SizedBox(
+          height: 24.0,
+        ),
         new RaisedButton(
           onPressed: _updateAnswer,
           child: new Text('Calculate')
