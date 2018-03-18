@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-final currencyKey = new GlobalKey<CurrencyWidgetState>();
-
 class CurrencyWidget extends StatefulWidget {
   final bool flag;
   CurrencyWidget({Key currencyKey, this.flag}) : super(key: currencyKey);
@@ -28,7 +26,7 @@ Widget createCurrencyInput(bool flag) {
     );
   }
   return const SizedBox(
-            height: 24.0,
+    height: 25.0,
   );
 }
 

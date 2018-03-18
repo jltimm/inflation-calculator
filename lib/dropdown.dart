@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-final dropdownKey = new GlobalKey<DropdownWidgetState>();
-
 class DropdownWidget extends StatefulWidget {
   final String label1;
   final String label2;

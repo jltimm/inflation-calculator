@@ -3,6 +3,8 @@ import 'dropdown.dart';
 import 'currency.dart';
 
 final dropdownKeyBefore = new GlobalKey<DropdownWidgetState>();
+final currencyKeyBefore = new GlobalKey<CurrencyWidgetState>();
+final currencyKeyAfter = new GlobalKey<CurrencyWidgetState>();
 
 void main() {
   runApp(new MyApp());
@@ -68,7 +70,8 @@ class _TextWidgetState extends State<TextWidget> {
           height: 24.0,
         ),
         new Text('Currency 2: $_currency2'),
-        new CurrencyWidget(flag: true),
+        new CurrencyWidget(currencyKey: currencyKeyBefore, flag: true),
+        new CurrencyWidget(currencyKey: currencyKeyAfter, flag: false),
         const SizedBox(
           height: 24.0,
         ),
