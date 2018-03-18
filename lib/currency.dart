@@ -12,6 +12,12 @@ class CurrencyWidgetState extends State<CurrencyWidget> {
   String _dropdownValue;
   String get dropdownValue => _dropdownValue;
 
+  final TextEditingController _yearController = new TextEditingController();
+  String get year => _yearController.text;
+
+  final TextEditingController _currencyController = new TextEditingController();
+  String get currency => _currencyController.text;
+
   Widget createDropdown(bool flag) {
     return new DropdownButton<String>(
       value: _dropdownValue,
@@ -32,6 +38,7 @@ class CurrencyWidgetState extends State<CurrencyWidget> {
 
   Widget createYearInput() {
     return new TextField(
+      controller: _yearController,
       keyboardType: TextInputType.number,
       decoration: new InputDecoration(labelText: "Enter year"),
     );
@@ -40,6 +47,7 @@ class CurrencyWidgetState extends State<CurrencyWidget> {
   Widget createCurrencyInput(bool flag) {
   //if (flag) {
     return new TextField(
+      controller: _currencyController,
       keyboardType: TextInputType.number,
       decoration: new InputDecoration(labelText: "Enter amount(\$)"),
     );
