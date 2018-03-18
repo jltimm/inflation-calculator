@@ -11,22 +11,26 @@ class CurrencyWidgetState extends State<CurrencyWidget> {
   Widget build(BuildContext context) {
     return new Column(
       children: [
-        new Text(widget.flag.toString()),
         createCurrencyInput(widget.flag),
+        createYearInput(),
       ]
     );
   }
 }
 
+Widget createYearInput() {
+  return new TextField(
+    keyboardType: TextInputType.number,
+    decoration: new InputDecoration(labelText: "Enter year"),
+  );
+}
+
 Widget createCurrencyInput(bool flag) {
-  if (flag) {
+  //if (flag) {
     return new TextField(
       keyboardType: TextInputType.number,
       decoration: new InputDecoration(labelText: "Enter amount(\$)"),
     );
-  }
-  return const SizedBox(
-    height: 25.0,
-  );
+  //}
 }
 

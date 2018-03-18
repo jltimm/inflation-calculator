@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Widget dropDownSection = new DropdownWidget(dropdownKey: dropdownKeyBefore, label1: "test", label2: "test2",);
+    //Widget dropDownSection = new DropdownWidget(dropdownKey: dropdownKeyBefore, label1: "test", label2: "test2",);
     Widget textEditSection = new TextWidget();
 
     return new MaterialApp(
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         ),
         body: new ListView(
           children: [
-            dropDownSection,
+            //dropDownSection,
             textEditSection,
           ],
         ),
@@ -44,39 +44,33 @@ class _TextWidgetState extends State<TextWidget> {
   String _currency1 = "";
   String _currency2 = "";
 
-  void _updateAnswer() {
-    setState(() {
-      String dropdown1 = dropdownKeyBefore.currentState.dropdown1Value;
-      String dropdown2 = dropdownKeyBefore.currentState.dropdown2Value;
-      if (dropdown1 != null) {
-        _currency1 = dropdownKeyBefore.currentState.dropdown1Value;
-      }
-      if (dropdown2 != null) {
-        _currency2 = dropdownKeyBefore.currentState.dropdown2Value;
-      }
-    });
-  }
+  // void _updateAnswer() {
+  //   setState(() {
+  //     String dropdown1 = dropdownKeyBefore.currentState.dropdown1Value;
+  //     String dropdown2 = dropdownKeyBefore.currentState.dropdown2Value;
+  //     if (dropdown1 != null) {
+  //       _currency1 = dropdownKeyBefore.currentState.dropdown1Value;
+  //     }
+  //     if (dropdown2 != null) {
+  //       _currency2 = dropdownKeyBefore.currentState.dropdown2Value;
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     return new Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const SizedBox(
-          height: 24.0,
-        ),
-        new Text('Currency 1: $_currency1'),
-        const SizedBox(
-          height: 24.0,
-        ),
-        new Text('Currency 2: $_currency2'),
+        //new Text('Currency 1: $_currency1'),
+        //new Text('Currency 2: $_currency2'),
         new CurrencyWidget(currencyKey: currencyKeyBefore, flag: true),
         new CurrencyWidget(currencyKey: currencyKeyAfter, flag: false),
         const SizedBox(
           height: 24.0,
         ),
         new RaisedButton(
-          onPressed: _updateAnswer,
+          //onPressed: _updateAnswer,
           child: new Text('Calculate')
         ),
       ],
