@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dropdown.dart';
 import 'currency.dart';
 
-final dropdownKeyBefore = new GlobalKey<DropdownWidgetState>();
 final currencyKeyBefore = new GlobalKey<CurrencyWidgetState>();
 final currencyKeyAfter = new GlobalKey<CurrencyWidgetState>();
 
@@ -40,7 +38,7 @@ class TextWidget extends StatefulWidget {
 
 class _TextWidgetState extends State<TextWidget> {
   String _currency1 = "";
-  String _currency2 = "";
+  //String _currency2 = "";
   String _year1 = "";
   String _year2 = "";
   String _dropdown1 = "";
@@ -48,7 +46,7 @@ class _TextWidgetState extends State<TextWidget> {
   void _validateInput() {
     setState(() {
       _currency1 = currencyKeyBefore.currentState.currency;
-      _currency2 = currencyKeyAfter.currentState.currency;
+      //_currency2 = currencyKeyAfter.currentState.currency;
       _year1 = currencyKeyBefore.currentState.year;
       _year2 = currencyKeyAfter.currentState.year;
       _dropdown1 = currencyKeyBefore.currentState.dropdownValue;
@@ -73,7 +71,7 @@ class _TextWidgetState extends State<TextWidget> {
         new Text('Currency 1: $_currency1'),
         new Text('Year 1: $_year1'),
         new Text('Dropdown 1: $_dropdown1'),
-        new Text('Currency 2: $_currency2'),
+        //new Text('Currency 2: $_currency2'),
         new Text('Year 2: $_year2'),
         new Text('Dropdown2: $_dropdown2'),
       ],

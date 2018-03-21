@@ -45,13 +45,16 @@ class CurrencyWidgetState extends State<CurrencyWidget> {
   }
 
   Widget createCurrencyInput(bool flag) {
-  //if (flag) {
-    return new TextField(
-      controller: _currencyController,
-      keyboardType: TextInputType.number,
-      decoration: new InputDecoration(labelText: "Enter amount(\$)"),
+    if (flag) {
+      return new TextField(
+        controller: _currencyController,
+        keyboardType: TextInputType.number,
+        decoration: new InputDecoration(labelText: "Enter amount(\$)"),
+      );
+    }
+    return const SizedBox(
+      height: 24.0,
     );
-  //}
   }
 
   Widget build(BuildContext context) {
