@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    //Widget dropDownSection = new DropdownWidget(dropdownKey: dropdownKeyBefore, label1: "test", label2: "test2",);
     Widget textEditSection = new TextWidget();
 
     return new MaterialApp(
@@ -25,7 +24,6 @@ class MyApp extends StatelessWidget {
         ),
         body: new ListView(
           children: [
-            //dropDownSection,
             textEditSection,
           ],
         ),
@@ -55,14 +53,6 @@ class _TextWidgetState extends State<TextWidget> {
       _year2 = currencyKeyAfter.currentState.year;
       _dropdown1 = currencyKeyBefore.currentState.dropdownValue;
       _dropdown2 = currencyKeyAfter.currentState.dropdownValue;
-
-      
-      // if (_currency1 != null) {
-      //   _currency1 = dropdownKeyBefore.currentState.dropdown1Value;
-      // }
-      // if (dropdown2 != null) {
-      //   _currency2 = dropdownKeyBefore.currentState.dropdown2Value;
-      // }
     });
   }
 
