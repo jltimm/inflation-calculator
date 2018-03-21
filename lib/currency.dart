@@ -9,14 +9,14 @@ class CurrencyWidget extends StatefulWidget {
 
 class CurrencyWidgetState extends State<CurrencyWidget> {
 
-  String _dropdownValue;
-  String get dropdownValue => _dropdownValue;
-
   final TextEditingController _yearController = new TextEditingController();
   String get year => _yearController.text;
 
   final TextEditingController _currencyController = new TextEditingController();
   String get currency => _currencyController.text;
+
+  String _dropdownValue;
+  String get dropdownValue => _dropdownValue;
 
   Widget createDropdown(bool flag) {
     return new DropdownButton<String>(
