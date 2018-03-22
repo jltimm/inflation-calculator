@@ -38,7 +38,6 @@ class TextWidget extends StatefulWidget {
 
 class _TextWidgetState extends State<TextWidget> {
   String _currency1 = "";
-  //String _currency2 = "";
   String _year1 = "";
   String _year2 = "";
   String _dropdown1 = "";
@@ -46,11 +45,13 @@ class _TextWidgetState extends State<TextWidget> {
   void _validateInput() {
     setState(() {
       _currency1 = currencyKeyBefore.currentState.currency;
-      //_currency2 = currencyKeyAfter.currentState.currency;
       _year1 = currencyKeyBefore.currentState.year;
       _year2 = currencyKeyAfter.currentState.year;
       _dropdown1 = currencyKeyBefore.currentState.dropdownValue;
       _dropdown2 = currencyKeyAfter.currentState.dropdownValue;
+      if (_currency1.isEmpty || _year1.isEmpty || _year2.isEmpty || _dropdown1.isEmpty || _dropdown2.isEmpty) {
+        //TODO: implement
+      }
     });
   }
 
@@ -71,7 +72,6 @@ class _TextWidgetState extends State<TextWidget> {
         new Text('Currency 1: $_currency1'),
         new Text('Year 1: $_year1'),
         new Text('Dropdown 1: $_dropdown1'),
-        //new Text('Currency 2: $_currency2'),
         new Text('Year 2: $_year2'),
         new Text('Dropdown2: $_dropdown2'),
       ],
