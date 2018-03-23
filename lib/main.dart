@@ -42,6 +42,7 @@ class _TextWidgetState extends State<TextWidget> {
   String _year2 = "";
   String _dropdown1 = "";
   String _dropdown2 = "";
+
   void _validateInput() {
     setState(() {
       _currency1 = currencyKeyBefore.currentState.currency;
