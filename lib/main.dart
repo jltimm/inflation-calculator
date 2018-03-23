@@ -7,15 +7,15 @@ import 'textbox.dart';
 import 'button.dart';
 
 void main() {
-  runApp(new MyApp());
+  runApp(new InflationCalculator());
 }
 
-class ParentWidget extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
-  _ParentWidgetState createState() => new _ParentWidgetState();
+  _HomeState createState() => new _HomeState();
 }
 
-class _ParentWidgetState extends State<ParentWidget> {
+class _HomeState extends State<Home> {
   String _yearBefore = "";
   String _yearAfter = "";
   String _currencyBefore = "";
@@ -114,7 +114,7 @@ class _ParentWidgetState extends State<ParentWidget> {
   }
 }
 
-class MyApp extends StatelessWidget {
+class InflationCalculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -124,7 +124,7 @@ class MyApp extends StatelessWidget {
           title: new Text('Inflation Calculator'),
         ),
         body: new Center(
-          child: new ParentWidget(),
+          child: new Home(),
         ),
       ),
     );
