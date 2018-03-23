@@ -18,9 +18,10 @@ class ParentWidget extends StatefulWidget {
 class _ParentWidgetState extends State<ParentWidget> {
   String _yearBefore = "";
   String _yearAfter = "";
-  String _buttonText = "USD";
-  String _beforeText = "";
-  String _afterText = "";
+  String _currencyBefore = "";
+  String _currencyAfter = "";
+  String _buttonBefore = "USD";
+  String _buttonAfter = "USD";
 
   void _handleYearBeforeChanged(String newString) {
     setState(() {
@@ -34,21 +35,27 @@ class _ParentWidgetState extends State<ParentWidget> {
     });
   }
 
-  void _handleButtonChanged(String newString) {
+  void _handleButtonBeforeChanged(String newString) {
     setState(() {
-      _buttonText = newString;
+      _buttonBefore = newString;
     });
   }
 
-  void _handleTextBeforeChanged(String newString) {
+  void _handleButtonAfterChanged(String newString) {
     setState(() {
-      _beforeText = newString;
+      _buttonAfter = newString;
     });
   }
 
-  void _handleTextAfterChanged(String newString) {
+  void _handleCurrencyBeforeChanged(String newString) {
     setState(() {
-      _afterText = newString;
+      _currencyBefore = newString;
+    });
+  }
+
+  void _handleCurrencyAfterChanged(String newString) {
+    setState(() {
+      _currencyAfter = newString;
     });
   }
 
@@ -57,7 +64,7 @@ class _ParentWidgetState extends State<ParentWidget> {
     return new Column(
       children: [
         new ButtonTest(
-          onTextChangedButton: _handleButtonChanged,
+          onTextChangedButton: _handleButtonBeforeChanged,
         ),
         new Container(
           padding: const EdgeInsets.all(10.0),
@@ -73,7 +80,7 @@ class _ParentWidgetState extends State<ParentWidget> {
               new Expanded(
                 child: new TextBoxTest(
                   label: "Year",
-                  onTextChanged: _handleTextBeforeChanged,
+                  onTextChanged: _handleCurrencyBeforeChanged,
                 ),
               ),
             ],
@@ -93,14 +100,14 @@ class _ParentWidgetState extends State<ParentWidget> {
               new Expanded(
                 child: new TextBoxTest(
                   label: "Year",
-                  onTextChanged: _handleTextAfterChanged,
+                  onTextChanged: _handleCurrencyAfterChanged,
                 ),
               ),
             ],
           )
         ),
         new ButtonTest(
-          onTextChangedButton: _handleButtonChanged,
+          onTextChangedButton: _handleButtonAfterChanged,
         ),
       ],
     );
