@@ -16,19 +16,33 @@ class ParentWidget extends StatefulWidget {
 }
 
 class _ParentWidgetState extends State<ParentWidget> {
-  String _text = "";
+  String _yearBefore = "";
+  String _yearAfter = "";
   String _buttonText = "USD";
+  String _beforeText = "";
   String _afterText = "";
 
-  void _handleTextChanged(String newString) {
+  void _handleYearBeforeChanged(String newString) {
     setState(() {
-      _text = newString;
+      _yearBefore = newString;
+    });
+  }
+
+  void _handleYearAfterChanged(String newString) {
+    setState(() {
+      _yearAfter = newString;
     });
   }
 
   void _handleButtonChanged(String newString) {
     setState(() {
       _buttonText = newString;
+    });
+  }
+
+  void _handleTextBeforeChanged(String newString) {
+    setState(() {
+      _beforeText = newString;
     });
   }
 
@@ -40,37 +54,53 @@ class _ParentWidgetState extends State<ParentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      //padding: const EdgeInsets.symmetric(horizontal: 32.0),
-      child: new Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children:[
-          // new Container(
-          //   margin: new EdgeInsets.symmetric(horizontal: 4.0),
-          //   child: new Icon(Icons.ac_unit),
-          // ),
-          new Container(
-            child: new ButtonTest(
-              onTextChangedButton: _handleButtonChanged,
-            ),
-          ),
-          new Flexible(
-            child: new TextBoxTest(
-              label: "Amount",
-              onTextChanged: _handleTextChanged,
-            ),
-          ),
-          new Flexible(
-            child: new TextBoxTest(
-              label: "Year",
-              onTextChanged: _handleTextAfterChanged,
-            ),
-          ),
-          //new Text('Test: $_text'),
-          //new Text('Test: $_buttonText'),
-          //new Text('Test: $_afterText'),
-        ],
-      )
+    return new Column(
+      children: [
+        new ButtonTest(
+          onTextChangedButton: _handleButtonChanged,
+        ),
+        new Container(
+          child: new Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children:[
+              new Expanded(
+                child: new TextBoxTest(
+                  label: "Amount",
+                  onTextChanged: _handleYearBeforeChanged,
+                ),
+              ),
+              new Expanded(
+                child: new TextBoxTest(
+                  label: "Year",
+                  onTextChanged: _handleTextBeforeChanged,
+                ),
+              ),
+            ],
+          )
+        ),
+        new Container(
+          child: new Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children:[
+              new Expanded(
+                child: new TextBoxTest(
+                  label: "Amount",
+                  onTextChanged: _handleYearAfterChanged,
+                ),
+              ),
+              new Expanded(
+                child: new TextBoxTest(
+                  label: "Year",
+                  onTextChanged: _handleTextAfterChanged,
+                ),
+              ),
+            ],
+          )
+        ),
+        new ButtonTest(
+          onTextChangedButton: _handleButtonChanged,
+        ),
+      ],
     );
   }
 }
@@ -79,10 +109,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Inflation Calculator',
       home: new Scaffold(
         appBar: new AppBar(
-          title: new Text('Flutter Demo'),
+          title: new Text('Inflation Calculator'),
         ),
         body: new Center(
           child: new ParentWidget(),
