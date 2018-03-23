@@ -60,6 +60,7 @@ class _ParentWidgetState extends State<ParentWidget> {
           onTextChangedButton: _handleButtonChanged,
         ),
         new Container(
+          padding: const EdgeInsets.all(10.0),
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children:[
@@ -79,6 +80,7 @@ class _ParentWidgetState extends State<ParentWidget> {
           )
         ),
         new Container(
+          padding: const EdgeInsets.all(10.0),
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children:[
