@@ -29,11 +29,11 @@ class _HomeState extends State<Home> {
     });
   }
 
-  // void _handleYearAfterChanged(String newString) {
-  //   setState(() {
-  //     _yearAfter = newString;
-  //   });
-  // }
+  void _handleYearAfterChanged(String newString) {
+    setState(() {
+      _yearAfter = newString;
+    });
+  }
 
   void _handleButtonBeforeChanged(String newString) {
     setState(() {
@@ -53,11 +53,11 @@ class _HomeState extends State<Home> {
     });
   }
 
-  void _handleCurrencyAfterChanged(String newString) {
-    setState(() {
-      _currencyAfter = newString;
-    });
-  }
+  // void _handleCurrencyAfterChanged(String newString) {
+  //   setState(() {
+  //     _currencyAfter = newString;
+  //   });
+  // }
 
   Widget buildBeforeInput() {
     return new Column(
@@ -97,18 +97,18 @@ class _HomeState extends State<Home> {
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children:[
-              // new Expanded(
-              //   child: new TextBoxTest(
-              //     label: "Amount",
-              //     onTextChanged: _handleYearAfterChanged,
-              //   ),
-              // ),
               new Expanded(
                 child: new TextBoxTest(
-                  label: "Year",
-                  onTextChanged: _handleCurrencyAfterChanged,
+                  label: "Amount",
+                  onTextChanged: _handleYearAfterChanged,
                 ),
               ),
+              // new Expanded(
+              //   child: new TextBoxTest(
+              //     label: "Year",
+              //     onTextChanged: _handleCurrencyAfterChanged,
+              //   ),
+              // ),
             ],
           )
         ),
