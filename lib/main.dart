@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
   String _yearBefore = "";
   String _yearAfter = "";
   String _currencyBefore = "";
-  String _currencyAfter = "";
+  //String _currencyAfter = "";
   String _buttonBefore = "USD";
   String _buttonAfter = "USD";
 
@@ -29,11 +29,11 @@ class _HomeState extends State<Home> {
     });
   }
 
-  void _handleYearAfterChanged(String newString) {
-    setState(() {
-      _yearAfter = newString;
-    });
-  }
+  // void _handleYearAfterChanged(String newString) {
+  //   setState(() {
+  //     _yearAfter = newString;
+  //   });
+  // }
 
   void _handleButtonBeforeChanged(String newString) {
     setState(() {
@@ -59,8 +59,7 @@ class _HomeState extends State<Home> {
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget buildBeforeInput() {
     return new Column(
       children: [
         new ButtonTest(
@@ -70,7 +69,7 @@ class _HomeState extends State<Home> {
           padding: const EdgeInsets.all(10.0),
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children:[
+            children: [
               new Expanded(
                 child: new TextBoxTest(
                   label: "Amount",
@@ -84,19 +83,26 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ],
-          )
-        ),
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget buildAfterInput() {
+    return new Column(
+      children: [
         new Container(
           padding: const EdgeInsets.all(10.0),
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children:[
-              new Expanded(
-                child: new TextBoxTest(
-                  label: "Amount",
-                  onTextChanged: _handleYearAfterChanged,
-                ),
-              ),
+              // new Expanded(
+              //   child: new TextBoxTest(
+              //     label: "Amount",
+              //     onTextChanged: _handleYearAfterChanged,
+              //   ),
+              // ),
               new Expanded(
                 child: new TextBoxTest(
                   label: "Year",
@@ -109,6 +115,22 @@ class _HomeState extends State<Home> {
         new ButtonTest(
           onTextChangedButton: _handleButtonAfterChanged,
         ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Column(
+      children: [
+        new Expanded(
+          flex: 1,
+          child: buildBeforeInput(),
+        ),
+        new Expanded(
+          flex: 2,
+          child: buildAfterInput(),
+        )
       ],
     );
   }
