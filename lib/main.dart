@@ -124,11 +124,11 @@ class _HomeState extends State<Home> {
     return new Column(
       children: [
         new Expanded(
-          flex: 2,
+          flex: 4,
           child: buildBeforeInput(),
         ),
         new Expanded(
-          flex: 3,
+          flex: 1,
           child: buildAfterInput(),
         )
       ],
