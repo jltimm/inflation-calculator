@@ -123,12 +123,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return new Column(
       children: [
-        new Expanded(
-          flex: 4,
+        new Container(
+          //flex: 4,
           child: buildBeforeInput(),
         ),
-        new Expanded(
-          flex: 1,
+        new Container(
+          //flex: 1,
           child: buildAfterInput(),
         )
       ],
