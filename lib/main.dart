@@ -128,7 +128,7 @@ class _HomeState extends State<Home> {
           child: buildBeforeInput(),
         ),
         new Expanded(
-          flex: 4,
+          flex: 2,
           child: buildAfterInput(),
         )
       ],
