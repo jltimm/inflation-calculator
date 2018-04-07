@@ -154,14 +154,12 @@ class _HomeState extends State<Home> {
     try {
       yearBeforeInt = int.parse(_yearBefore);
     } catch(exception) {
-      //_createBadDataAlertDialog("Error! year before");
       errors.add("Year before is empty or not a number.");
     }
     try {
       yearAfterInt = int.parse(_yearAfter);
     } catch(exception) {
       errors.add("Year after is empty or not a number.");
-      //_createBadDataAlertDialog("Error! year after");
     }
     try {
       currencyBeforeDouble = double.parse(_currencyBefore);
@@ -173,7 +171,7 @@ class _HomeState extends State<Home> {
     }
     setState(() {
       if (yearBeforeInt != null && yearAfterInt != null && currencyBeforeDouble != null) {
-        //_value = (yearBeforeInt + yearAfterInt + currencyBeforeDouble).toString();
+        _value = (yearBeforeInt + yearAfterInt + currencyBeforeDouble).toString();
       }
     });
   }
