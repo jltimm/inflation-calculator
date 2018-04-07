@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
-class ButtonTest extends StatefulWidget {
-  ButtonTest({Key key, @required this.onTextChangedButton})
+class CurrencyButton extends StatefulWidget {
+  CurrencyButton({Key key, @required this.onTextChangedButton})
     : super(key: key);
 
   final ValueChanged<String> onTextChangedButton;
 
-  _ButtonTestState createState() => new _ButtonTestState();
+  _CurrencyButtonState createState() => new _CurrencyButtonState();
 }
 
-class _ButtonTestState extends State<ButtonTest> {
+class _CurrencyButtonState extends State<CurrencyButton> {
   String value = "";
 
   List<ListTile> getTiles() {
