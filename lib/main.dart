@@ -109,12 +109,15 @@ class _HomeState extends State<Home> {
     );
   }
 
-  List<Widget> _buildErrorList(List<String> errors) {
-    List<Text> errorTextList = new List<Text>();
+  Text _buildErrorList(List<String> errors) {
+    String errorString = "";
     for (int i = 0; i < errors.length; i++) {
-      errorTextList.add(new Text(errors[i]));
+      errorString += (i+1).toString() + ") " + errors[i];
+      if (i != errors.length-1) {
+        errorString += "\n";
+      }
     }
-    return errorTextList;
+    return new Text(errorString);
   }
 
   Future<Null> _createBadDataAlertDialog(List<String> message) async {
@@ -122,14 +125,8 @@ class _HomeState extends State<Home> {
       context: context,
       barrierDismissible: false,
       child: new AlertDialog(
-        title: new Text('Error'),
-        content: new SingleChildScrollView(
-          child: new ListView(
-            children: [
-              //_buildErrorList(message),
-            ],
-          ),
-        ),
+        title: new Text('Error: there are ' + (message.length).toString() + ' errors.'),
+        content: _buildErrorList(message),
         actions: [
           new FlatButton(
             child: new Text('Close'),
