@@ -1,7 +1,3 @@
-// Copyright 2017 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/material.dart';
 import 'textbox.dart';
 import 'button.dart';
@@ -66,13 +62,13 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               new Expanded(
-                child: new TextBoxTest(
+                child: new TextInput(
                   label: "Amount",
                   onTextChanged: _handleCurrencyBeforeChanged,
                 ),
               ),
               new Expanded(
-                child: new TextBoxTest(
+                child: new TextInput(
                   label: "Year",
                   onTextChanged: _handleYearBeforeChanged,
                 ),
@@ -98,7 +94,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               new Expanded(
-                child: new TextBoxTest(
+                child: new TextInput(
                   label: "Year",
                   onTextChanged: _handleYearAfterChanged,
                 ),
@@ -124,7 +120,7 @@ class _HomeState extends State<Home> {
   Future<Null> _createBadDataAlertDialog(List<String> message) async {
     return showDialog<Null>(
       context: context,
-      barrierDismissible: false, // user must tap button!
+      barrierDismissible: false,
       child: new AlertDialog(
         title: new Text('Error'),
         content: new SingleChildScrollView(

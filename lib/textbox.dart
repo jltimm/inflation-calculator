@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
-class TextBoxTest extends StatefulWidget {
-  TextBoxTest({Key key, this.label, @required this.onTextChanged})
+class TextInput extends StatefulWidget {
+  TextInput({Key key, this.label, @required this.onTextChanged})
     : super(key: key);
 
     final ValueChanged<String> onTextChanged;
     final String label;
-    _TextBoxTestState createState() => new _TextBoxTestState(); 
+    _TextInputState createState() => new _TextInputState(); 
 }
 
-class _TextBoxTestState extends State<TextBoxTest> {
+class _TextInputState extends State<TextInput> {
   
   void _handleChange(String newString) {
     widget.onTextChanged(newString);
@@ -21,7 +21,6 @@ class _TextBoxTestState extends State<TextBoxTest> {
       onChanged: _handleChange,
       keyboardType: TextInputType.number,
       decoration: new InputDecoration(
-        //contentPadding: const EdgeInsets.all(1.0),
         labelText: widget.label,
       ),
     );
