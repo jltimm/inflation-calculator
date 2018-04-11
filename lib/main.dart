@@ -129,7 +129,7 @@ class _HomeState extends State<Home> {
         content: _buildErrorList(message),
         actions: [
           new FlatButton(
-            child: new Text('Close'),
+            child: new Text('Dismiss'),
             onPressed: () {
               Navigator.of(context).pop();
             },
