@@ -125,7 +125,7 @@ class _HomeState extends State<Home> {
       context: context,
       barrierDismissible: false,
       child: new AlertDialog(
-        title: new Text('Error: there are ' + (message.length).toString() + ' errors.'),
+        title: new Text('There are ' + (message.length).toString() + ' errors.'),
         content: _buildErrorList(message),
         actions: [
           new FlatButton(
