@@ -2,23 +2,38 @@ import 'package:flutter/material.dart';
 import 'textbox.dart';
 import 'button.dart';
 import 'dart:async';
+import 'FileUtils.dart';
 
 void main() {
   runApp(new InflationCalculator());
 }
 
 class Home extends StatefulWidget {
+  final FileUtils fileUtils;
+  Home({Key key, this.fileUtils}) : super(key: key);
   @override
   _HomeState createState() => new _HomeState();
 }
 
 class _HomeState extends State<Home> {
+
+  String dater = "";
+  
   String _yearBefore = "";
   String _yearAfter = "";
   String _currencyBefore = "";
-  String _buttonBefore = "USD";
-  String _buttonAfter = "USD";
+  String _buttonBefore = "";
+  String _buttonAfter = "";
   String _value = "";
+
+  @override
+  void initState() {
+    super.initState();
+    widget.fileUtils.loadFile().then((String value) {
+      dater = value;
+      print(dater);
+    });
+  }
 
   void _handleYearBeforeChanged(String newString) {
     setState(() {
@@ -50,7 +65,9 @@ class _HomeState extends State<Home> {
     });
   }
 
-  Widget buildBeforeInput() {
+  Widget buildBeforeInput()
+  {
+
     return new Column(
       children: [
         new CurrencyButton(
@@ -157,7 +174,7 @@ class _HomeState extends State<Home> {
     try {
       currencyBeforeDouble = double.parse(_currencyBefore);
     } catch(exception) {
-      errors.add("Value is empty or not a number.");;
+      errors.add("Amount is empty or not a number.");;
     }
     if (errors.length > 0) {
       _createBadDataAlertDialog(errors);
@@ -180,34 +197,28 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return new Column(
       children: [
-        new Expanded(
-          flex: 1,
-          child: buildBeforeInput(),
-        ),
-        new Expanded(
-          flex: 1,
-          child: buildAfterInput(),
-        ),
-        new Expanded(
-          flex: 1,
-          child: buildCalculateButton(),
-        ),
+        buildBeforeInput(),
+        buildAfterInput(),
+        buildCalculateButton(),
       ],
     );
   }
 }
 
 class InflationCalculator extends StatelessWidget {
+  final FileUtils newFileUtils = new FileUtils();
+  // String path = "";
+  // newFileUtils.localFile.then
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Inflation Calculator',
       home: new Scaffold(
         appBar: new AppBar(
-          title: new Text('Inflation Calculator'),
+          title: new Text("IF"),
         ),
         body: new Center(
-          child: new Home(),
+          child: new Home(fileUtils: new FileUtils()),
         ),
       ),
     );
